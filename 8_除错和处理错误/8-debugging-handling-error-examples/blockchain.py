@@ -45,7 +45,7 @@ def load_data():
                 updated_blockchain.append(updated_block)
             blockchain = updated_blockchain
             open_transactions = json.loads(file_content[1])
-            # We need to convert  the loaded data because Transactions should use OrderedDict
+            # We need to convert the loaded data because Transactions should use OrderedDict
             updated_transactions = []
             for tx in open_transactions:
                 updated_transaction = OrderedDict(
@@ -205,7 +205,8 @@ def mine_block():
     reward_transaction = OrderedDict(
         [('sender', 'MINING'), ('recipient', owner), ('amount', MINING_REWARD)])
     # Copy transaction instead of manipulating the original open_transactions list
-    # This ensures that if for some reason the mining should fail, we don't have the reward transaction stored in the open transactions
+    # This ensures that if for some reason the mining should fail, 
+    # we don't have the reward transaction stored in the open transactions
     copied_transactions = open_transactions[:]
     copied_transactions.append(reward_transaction)
     block = {
